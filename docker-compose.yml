@@ -1,0 +1,9 @@
+services:
+  proxy:
+    build: .
+    container_name: mailserver-proxy
+    restart: unless-stopped
+    network_mode: host  # Uses host network to reach 127.0.0.1:8080
+    environment:
+      - TARGET_URL=http://127.0.0.1:8080
+      - PORT=3000
